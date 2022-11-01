@@ -1,0 +1,59 @@
+<div class="tittle">
+   <ion-text >
+      <h3>Wheels</h3>
+   </ion-text>
+</div>
+<ion-content>
+   <ion-grid>
+      <ion-row>
+         <ion-col>
+            <ion-text class="uptext">
+               <p> {{frontLeft}} </p>
+            </ion-text>
+            <img src="assets/images/frontleftt.jpeg" /><br>
+            {{setColor(_wheels[0].pressure,_wheels[0].wear)}}
+            <ion-text>
+               <p style="color:{{coloring}};"> {{checkStatus(_wheels[0].pressure,_wheels[0].wear)}}</p>
+            </ion-text>
+            <ion-button  shape="block" size="small" [routerLink]="['/loader']" >Details</ion-button>
+         </ion-col>
+         <ion-col>
+            <ion-text class="uptext">
+               <p> {{frontRight}} </p>
+            </ion-text>
+            <img src="assets/images/roue.jpeg" /> <br>
+            <ion-text>
+              {{setColor(_wheels[1].pressure,_wheels[1].wear)}}
+               <p style="color:{{coloring}};" > {{checkStatus(_wheels[1].pressure,_wheels[1].wear)}} </p>
+            </ion-text>
+            <ion-button shape="block" size="small">Details</ion-button>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <ion-grid>
+      <ion-row>
+         <ion-col>
+            <ion-text class="uptext">
+               <p>{{rearLeft}} </p>
+            </ion-text>
+            <img src="assets/images/frontleftt.jpeg" /><br>
+            <ion-text>
+               {{setColor(_wheels[2].pressure,_wheels[2].wear)}}
+               <p style="color:{{coloring}};"> {{checkStatus(_wheels[2].pressure,_wheels[2].wear)}} </p>
+            </ion-text>
+            <ion-button shape="block" size="small">Details</ion-button>
+         </ion-col>
+         <ion-col>
+            <ion-text class="uptext">
+               <p> {{rearRight}} </p>
+            </ion-text>
+            <img src="assets/images/roue.jpeg" /><br>
+            <ion-text>
+              {{setColor(_wheels[3].pressure,_wheels[3].wear)}}
+               <p style="color:{{coloring}};"> {{checkStatus(_wheels[3].pressure,_wheels[3].wear)}} </p>
+            </ion-text>
+            <ion-button shape="block" size="small">Details</ion-button>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+</ion-content>
