@@ -1,21 +1,22 @@
-<div class="tittle">
-   <ion-text >
-      <h3>Wheels</h3>
-   </ion-text>
-</div>
-<ion-content>
+<ion-header>
+  <ion-toolbar color="dark" >
+    <ion-title class="tittle">Wheels Monitor</ion-title>
+    <ion-progress-bar type="indeterminate" color="{{toolbarcolor}}"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding no-bounce>
    <ion-grid>
-      <ion-row>
+      <ion-row >
          <ion-col>
             <ion-text class="uptext">
                <p> {{frontLeft}} </p>
             </ion-text>
             <img src="assets/images/frontleftt.jpeg" /><br>
-            {{setColor(_wheels[0].pressure,_wheels[0].wear)}}
+            {{setColor(wheelArray[0].pressure,wheelArray[0].wear)}}
             <ion-text>
-               <p style="color:{{coloring}};"> {{checkStatus(_wheels[0].pressure,_wheels[0].wear)}}</p>
+               <p style="color:{{coloring}};"> {{checkStatus(wheelArray[0].pressure,wheelArray[0].wear)}}</p>
             </ion-text>
-            <ion-button  shape="block" size="small" [routerLink]="['/loader']" >Details</ion-button>
+            <ion-button color="dark" shape="block" size="small" (click)="openDetailsWithState('Front Left',0)" >Details</ion-button>
          </ion-col>
          <ion-col>
             <ion-text class="uptext">
@@ -23,10 +24,10 @@
             </ion-text>
             <img src="assets/images/roue.jpeg" /> <br>
             <ion-text>
-              {{setColor(_wheels[1].pressure,_wheels[1].wear)}}
-               <p style="color:{{coloring}};" > {{checkStatus(_wheels[1].pressure,_wheels[1].wear)}} </p>
+              {{setColor(wheelArray[1].pressure,wheelArray[1].wear)}}
+               <p style="color:{{coloring}};" > {{checkStatus(wheelArray[1].pressure,wheelArray[1].wear)}} </p>
             </ion-text>
-            <ion-button shape="block" size="small">Details</ion-button>
+            <ion-button color="dark"  shape="block" size="small"  (click)="openDetailsWithState('Front Right',1)" >Details</ion-button>
          </ion-col>
       </ion-row>
    </ion-grid>
@@ -38,10 +39,10 @@
             </ion-text>
             <img src="assets/images/frontleftt.jpeg" /><br>
             <ion-text>
-               {{setColor(_wheels[2].pressure,_wheels[2].wear)}}
-               <p style="color:{{coloring}};"> {{checkStatus(_wheels[2].pressure,_wheels[2].wear)}} </p>
+               {{setColor(wheelArray[2].pressure,wheelArray[2].wear)}}
+               <p style="color:{{coloring}};"> {{checkStatus(wheelArray[2].pressure,wheelArray[2].wear)}} </p>
             </ion-text>
-            <ion-button shape="block" size="small">Details</ion-button>
+            <ion-button color="dark" shape="block" size="small" (click)="openDetailsWithState('Rear Left',2)">Details</ion-button>
          </ion-col>
          <ion-col>
             <ion-text class="uptext">
@@ -49,10 +50,10 @@
             </ion-text>
             <img src="assets/images/roue.jpeg" /><br>
             <ion-text>
-              {{setColor(_wheels[3].pressure,_wheels[3].wear)}}
-               <p style="color:{{coloring}};"> {{checkStatus(_wheels[3].pressure,_wheels[3].wear)}} </p>
+              {{setColor(wheelArray[3].pressure,wheelArray[3].wear)}}
+               <p style="color:{{coloring}};"> {{checkStatus(wheelArray[3].pressure,wheelArray[3].wear)}} </p>
             </ion-text>
-            <ion-button shape="block" size="small">Details</ion-button>
+            <ion-button color="dark"  shape="block" size="small" (click)="openDetailsWithState('Front Right',3)" >Details</ion-button>
          </ion-col>
       </ion-row>
    </ion-grid>

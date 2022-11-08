@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
-
-export interface Wheel {
-  pressure: number;
-  wear : number;
-}
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { WheelRepositoryService } from "../../services/wheel-repository.service";
+import { Wheel } from "../../data/wheel";
 
 @Component({
   selector: 'app-loader',
@@ -15,19 +12,26 @@ export interface Wheel {
 
 export class LoaderPage implements OnInit {
 
-   _wheels : Wheel[] = [
-    {pressure : 2,  wear : 19999},
-    {pressure : 2,  wear : 19999},
-    {pressure : 2,  wear : 19999},
-    {pressure : 2,  wear : 19999}
-  ]
-  pressure = 10
-  wear =   0
+  name: string;
+  index : number;
+  @Input() wheelArray! : Array<Wheel>;
 
-  contructor() { }
+
+  constructor(private router: Router, private route: ActivatedRoute,private wheelRepositoryService : WheelRepositoryService ) {
+   this.route.params.subscribe(params => {
+     this.name = router.getCurrentNavigation().extras.state._name;
+     this.index = router.getCurrentNavigation().extras.state._index;
+   });
+ }
 
   ngOnInit() {
+    this.wheelArray = this.wheelRepositoryService._wheels;
   }
 
-
+  changeValuePressure($event){
+    this.wheelArray[this.index].pressure = $event.target.value;
+  }
+  changeValueWear($event){
+    this.wheelArray[this.index].wear = $event.target.value;
+  }
 }

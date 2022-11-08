@@ -1,4 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { Router, NavigationExtras } from '@angular/router';
+import { WheelRepositoryService } from "../services/wheel-repository.service";
+
 
 export interface Wheel {
   pressure: number;
@@ -10,21 +13,19 @@ export interface Wheel {
   templateUrl: "home.page.html",
   styleUrls: ["home.page.scss"],
 })
-export class HomePage {
-  @Input() _wheels: Wheel[] = [
-    { pressure: 2.6, wear: 5000 },
-    { pressure: 4, wear: 10000 },
-    { pressure: 2.7, wear: 24000 },
-    { pressure: 2.8, wear: 10000 },
-  ];
+
+
+export class HomePage implements OnInit {
+
+  toolbarcolor = "medium";
   rearLeft = "Rear Left";
   rearRight = "Rear right";
   frontLeft = "Front Left";
   frontRight = "Front right";
-  status = "s";
-  coloring = "red";
+  coloring = "";
+  @Input() wheelArray! : Array<Wheel>;
 
-  constructor() {}
+  constructor(private router: Router, private wheelRepositoryService : WheelRepositoryService ) {}
 
   setColor(_presseure, _wear){
     if (_presseure > 3 || _presseure < 2.5) {
@@ -39,13 +40,21 @@ export class HomePage {
 
   checkStatus(_presseure, _wear): string {
     if (_presseure > 3 || _presseure < 2.5) {
-      this.coloring = "red";
+      this.toolbarcolor = "danger";
       return "Warning:presseure";
     } else if (_wear > 20000) {
-      this.coloring = "red";
+      this.toolbarcolor = "danger";
       return "Warning:wear";
     }
-    this.coloring = "black";
+    this.toolbarcolor = "medium";
     return "status : ok";
   }
+  ngOnInit() {
+    this.wheelArray = this.wheelRepositoryService._wheels;
+  }
+  openDetailsWithState(nameofwheel,index) {
+    this.router.navigate(['loader'], { state: { _name: nameofwheel,
+    _index : index,
+  } });
+    }  //https://ionicacademy.com/pass-data-angular-router-ionic-4/
 }

@@ -6,23 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-   <div class="tittle">
-      <ion-text >
-         <h3>Rear Left</h3>
-      </ion-text>
-   </div>
+
+  <ion-toolbar color="dark" >
+    <ion-title >{{name}}</ion-title>
+    <ion-progress-bar type="progress"></ion-progress-bar>
+  </ion-toolbar>
+<div class="content">
+
+
    <ion-item>
      <ion-label>Pressure (bar)</ion-label>
-     <ion-input placeholder={{pressure}}></ion-input>
+     <ion-input type="number" value="{{wheelArray[index].pressure}}" (input)="changeValuePressure($event)"></ion-input>
    </ion-item>
-
-      <ion-item >
+  <ion-item >
      <ion-label > Wear (km) </ion-label>
-     <ion-input placeholder={{wear}}></ion-input>
+     <ion-input type="number" value="{{wheelArray[index].wear}}" (input)="changeValueWear($event)"></ion-input>
    </ion-item>
    <div class="cont">
-      <ion-button shape="block" size="small">Find reseller</ion-button>
+      <ion-button color="dark" shape="block" size="small">Find reseller</ion-button>
+   </div>
    </div>
 </ion-content>
