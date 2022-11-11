@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar color="dark" >
     <ion-title class="tittle">Wheels Monitor</ion-title>
+     {{setColorBarGlob()}} 
     <ion-progress-bar type="indeterminate" color="{{toolbarcolor}}"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
+
 <ion-content padding no-bounce>
-   <ion-grid>
+   <ion-grid [fixed]="true">
       <ion-row >
          <ion-col>
             <ion-text class="uptext">
@@ -31,7 +33,7 @@
          </ion-col>
       </ion-row>
    </ion-grid>
-   <ion-grid>
+   <ion-grid [fixed]="true">
       <ion-row>
          <ion-col>
             <ion-text class="uptext">
@@ -51,7 +53,7 @@
             <img src="assets/images/roue.jpeg" /><br>
             <ion-text>
               {{setColor(wheelArray[3].pressure,wheelArray[3].wear)}}
-               <p style="color:{{coloring}};"> {{checkStatus(wheelArray[3].pressure,wheelArray[3].wear)}} </p>
+               <p style="color:{{coloring}};"> {{checkStatus(wheelArray[3].pressure,wheelArray[3].wear)}}</p>
             </ion-text>
             <ion-button color="dark"  shape="block" size="small" (click)="openDetailsWithState('Front Right',3)" >Details</ion-button>
          </ion-col>

@@ -50,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "com.lampa.startapp": "^6.1.6",
+    "cordova-plugin-app-launcher": "github:nchutchind/cordova-plugin-app-launcher",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
@@ -69,7 +70,8 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "com.lampa.startapp": {}
+      "com.lampa.startapp": {},
+      "cordova-plugin-app-launcher": {}
     }
   }
 }
