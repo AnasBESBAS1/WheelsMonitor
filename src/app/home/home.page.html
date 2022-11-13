@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="dark" >
     <ion-title class="tittle">Wheels Monitor</ion-title>
-     {{setColorBarGlob()}} 
+     {{setColorBarGlob()}}
     <ion-progress-bar type="indeterminate" color="{{toolbarcolor}}"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
@@ -55,7 +55,7 @@
               {{setColor(wheelArray[3].pressure,wheelArray[3].wear)}}
                <p style="color:{{coloring}};"> {{checkStatus(wheelArray[3].pressure,wheelArray[3].wear)}}</p>
             </ion-text>
-            <ion-button color="dark"  shape="block" size="small" (click)="openDetailsWithState('Front Right',3)" >Details</ion-button>
+            <ion-button color="dark"  shape="block" size="small" (click)="openDetailsWithState('Rear Right',3)" >Details</ion-button>
          </ion-col>
       </ion-row>
    </ion-grid>

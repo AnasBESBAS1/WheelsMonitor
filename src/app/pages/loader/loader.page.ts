@@ -18,8 +18,8 @@ export class LoaderPage implements OnInit {
   @Input() wheelArray! : Array<Wheel>;
 
   openMaps = async () => {
-    this.name = "anas";
-    await AppLauncher.openUrl({url:'com.google.android.apps.maps'});
+     var data = await AppLauncher.openUrl({url:'com.google.android.apps.maps'});
+     return data;
   };
 
   constructor(private router: Router, private route: ActivatedRoute,
@@ -30,16 +30,6 @@ export class LoaderPage implements OnInit {
    });
  }
 
-   launchMaps(){
-    const checkCanOpenUrl = async () => {
-      this.name = "anas";
-      const { value } = await AppLauncher.canOpenUrl({ url: 'com.google.android.apps.maps' });
-
-      console.log('Can open url: ', value);
-    };
-
-    checkCanOpenUrl();
-  }
   ngOnInit() {
     this.wheelArray = this.wheelRepositoryService._wheels;
   }
